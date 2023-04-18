@@ -1,6 +1,6 @@
 :root {
   --cell-size: 100px;
-  --mark-size: call(var(--cell-size) * 0.9);
+  --mark-size: calc(var(--cell-size) * 0.9);
 }
 
 body {
