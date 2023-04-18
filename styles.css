@@ -1,3 +1,45 @@
+:root {
+  --cell-size: 100px;
+  --mark-size: call(var(--cell-size) * 0.9);
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+
+.gameBoard {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: solid 2px rgb(0, 0, 0);
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:nth-child(3n + 1) {
+  border-left: none;
+}
+
+.cell:nth-child(3n + 3) {
+  border-right: none;
+}
+
+.cell:last-child,
+.cell:nth-child(7),
+.cell:nth-child(8) {
+  border-bottom: none;
 }
