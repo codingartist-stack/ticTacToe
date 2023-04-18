@@ -54,12 +54,14 @@ body {
   cursor: not-allowed;
 }
 .cell.x::before,
-.cell.x::after {
+.cell.x::after,
+.cell.circle::before {
   background-color: black;
 }
 
 .gameBoard.x .cell:not(.x):not(.circle):hover::before,
-.gameBoard.x .cell:not(.x):not(.circle):hover::after {
+.gameBoard.x .cell:not(.x):not(.circle):hover::after,
+.gameBoard.circle .cell:not(.x):not(.circle):hover::before {
   background-color: lightgrey;
 }
 
@@ -81,16 +83,6 @@ body {
 .cell.x::after,
 .gameBoard.x .cell:not(.x):not(.circle):hover::after {
   transform: rotate(-45deg);
-}
-
-.cell.circle::before,
-.cell.circle::after {
-  background-color: black;
-}
-
-.gameBoard.circle .cell:not(.x):not(.circle):hover::before,
-.gameBoard.circle .cell:not(.x):not(.circle):hover::after {
-  background-color: lightgrey;
 }
 
 .cell.circle::before,
