@@ -8,3 +8,40 @@ header {
   justify-content: center;
   justify-items: center;
 }
+
+.winningMessage {
+  display: none;
+  position: fixed;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  opacity: 0.8;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 5rem;
+}
+
+.show {
+  display: flex;
+}
+
+button {
+  background-color: black;
+  color: white;
+  border: 3px solid white;
+  margin: 7px;
+  padding: 7px;
+  opacity: 1;
+  font-size: 2rem;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+  border: 3px solid black;
+  opacity: 1;
+}
