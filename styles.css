@@ -8,8 +8,13 @@ body {
   margin: 0;
 }
 
+header {
+  display: grid;
+  justify-content: center;
+}
+
 .gameBoard {
-  width: 80vw;
+  width: 100vw;
   height: 80vh;
   display: grid;
   justify-content: center;
