@@ -45,3 +45,9 @@ button:hover {
   border: 3px solid black;
   opacity: 1;
 }
+
+.gameboard {
+  background-color: rgb(190, 222, 233);
+  width: 100vw;
+  height: 80vh;
+}
