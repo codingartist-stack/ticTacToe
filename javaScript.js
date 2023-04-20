@@ -23,6 +23,12 @@ const TicTacToeApp = (() => {
     board[i][j] = 'O';
   };
 
+  for (const square of Object.values(board)) {
+    const indivSquare = document.createElement('div');
+    indivSquare.classList.add('squares');
+    // gameBoard.appendChild(indivSquare);
+  }
+
   return {
     board: board,
     addX: addX,
