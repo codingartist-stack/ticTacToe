@@ -40,6 +40,8 @@ const TicTacToeApp = (() => {
 // and you’re probably going to want an object to control the flow of the game itself.
 //factories
 
+const players = (name, marker) => {};
+
 //place markers
 
 //check for win
