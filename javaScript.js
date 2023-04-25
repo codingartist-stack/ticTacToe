@@ -9,6 +9,22 @@ const resetButton = document.getElementById('restartButton');
 //1. store the gameboard as an array inside of a gameboard object
 //module
 
+const TicTacToe = (() => {
+  const board = [];
+  const heigth = 3;
+  const width = 3;
+
+  for (let i = 0; i < heigth; i++) {
+    board.push(new Array(width));
+  }
+
+  // render board
+
+  return {
+    board,
+  };
+})();
+
 //2. Your players are also going to be stored in objects,
 // and you’re probably going to want an object to control the flow of the game itself.
 //factories
