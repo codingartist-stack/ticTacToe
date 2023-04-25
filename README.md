@@ -5,3 +5,4 @@ I don't know how much js I will use for making the grid, but giving the previous
 even though the tutorial I followed did not.
 
 4/19 - I deleted everything and am starting over.
+4/25 - I deleted everything again. My tutor wrote most of the Code and I wanted to start over.
