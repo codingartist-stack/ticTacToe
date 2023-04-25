@@ -10,61 +10,37 @@ const resetButton = document.getElementById('restartButton');
 //module
 
 const TicTacToeApp = (() => {
-  // init
-  const HEIGHT = 3;
-  const WIDTH = 3;
   const board = [];
-
-  for (let i = 0; i < HEIGHT; i++) {
-    board.push(new Array(WIDTH));
-  }
-
-  const players = [Player('player1', 'X'), Player('player2', 'O')];
-
-  function Player(name, marker) {
-    const playerName = name;
-    const greeting = `I'm ${playerName}`;
-    return {
-      marker: marker,
-      greeting,
-    };
+  for (let i = 0; i < 3; i++) {
+    board.push(new Array(3));
   }
 
   const addX = (i, j) => {
     board[i][j] = 'X';
-    this.render();
   };
 
   const addO = (i, j) => {
     board[i][j] = 'O';
-    this.render();
   };
 
-  const render = () => {
-    for (let i = 0; i < HEIGHT; i++) {
-      const rowDiv = document.createElement('div');
-      rowDiv.classList.add('row');
-      gameBoard.appendChild(rowDiv);
-      for (let j = 0; j < WIDTH; j++) {
-        const cell = document.createElement('div');
-        rowDiv.appendChild(cell);
-      }
-    }
-  };
+  for (const space of Object.values(board)) {
+    const square = document.createElement('div');
+    square.classList.add('squares');
+    // gameBoard.appendChild(square);
+  }
 
   return {
     board: board,
     addX: addX,
     addO: addO,
-    render: render,
-    players: players,
   };
 })();
 
-TicTacToeApp.render();
 //2. Your players are also going to be stored in objects,
 // and you’re probably going to want an object to control the flow of the game itself.
 //factories
+
+const players = (name, marker) => {};
 
 //place markers
 
