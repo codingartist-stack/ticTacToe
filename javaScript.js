@@ -10,6 +10,7 @@ const resetButton = document.getElementById('restartButton');
 //module
 
 const TicTacToe = (() => {
+  console.log(this);
   const board = [];
   const HEIGHT = 3;
   const WIDTH = 3;
@@ -20,20 +21,40 @@ const TicTacToe = (() => {
 
   // render board
   const render = () => {
+    gameBoard.innerHTML = '';
     for (let i = 0; i < HEIGHT; i++) {
       const row = document.createElement('div');
       gameBoard.appendChild(row);
       for (let j = 0; j < WIDTH; j++) {
+        // we're creating the cell at coordinates [i][j]
+        // what's the state of the board at that coordinate?
         const cell = document.createElement('div');
         cell.classList.add('squares');
+
+        switch (board[i][j]) {
+          case 'X':
+            cell.classList.add('markX');
+            break;
+          case 'O':
+            cell.classList.add('markO');
+            break;
+          default:
+            break;
+        }
         row.appendChild(cell);
       }
     }
   };
 
+  const addX = (i, j) => {
+    board[i][j] = 'X';
+    render();
+  };
+
   return {
     board: board,
     render: render,
+    addX: addX,
   };
 })();
 

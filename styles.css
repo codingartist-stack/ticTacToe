@@ -1,3 +1,8 @@
+:root {
+  --cell-size: 150px;
+  --mark-size: calc(var(var(--cell-size) * 0.9));
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
@@ -29,7 +34,7 @@ header {
   display: flex;
 }
 
-button {
+.winningMessageButton {
   background-color: black;
   color: white;
   border: 3px solid white;
@@ -39,7 +44,7 @@ button {
   font-size: 2rem;
 }
 
-button:hover {
+.winningMessageButton:hover {
   background-color: white;
   color: black;
   border: 3px solid black;
@@ -58,12 +63,17 @@ button:hover {
 .board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  height: 600px;
-  width: 600px;
+  height: calc(var(--cell-size) * 3);
+  width: calc(var(--cell-size) * 3);
 }
 
 .squares {
   background-color: rgb(255, 255, 255);
-  height: 200px;
+  height: var(--cell-size);
+  width: var(--cell-size);
   border: 2px solid black;
+}
+
+.markX {
+  background-color: green;
 }
