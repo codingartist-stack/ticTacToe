@@ -11,26 +11,33 @@ const resetButton = document.getElementById('restartButton');
 
 const TicTacToe = (() => {
   const board = [];
-  const heigth = 3;
-  const width = 3;
+  const HEIGHT = 3;
+  const WIDTH = 3;
 
-  for (let i = 0; i < heigth; i++) {
-    board.push(new Array(width));
+  for (let i = 0; i < HEIGHT; i++) {
+    board.push(new Array(WIDTH));
   }
 
   // render board
-  function render() {
-    for (let i = 0; i < height; i++) {
+  const render = () => {
+    for (let i = 0; i < HEIGHT; i++) {
       const row = document.createElement('div');
       gameBoard.appendChild(row);
+      for (let j = 0; j < WIDTH; j++) {
+        const cell = document.createElement('div');
+        cell.classList.add('squares');
+        gameBoard.appendChild(cell);
+      }
     }
-  }
+  };
 
   return {
-    board,
+    board: board,
+    render: render,
   };
 })();
 
+TicTacToe.render();
 //2. Your players are also going to be stored in objects,
 // and you’re probably going to want an object to control the flow of the game itself.
 //factories
