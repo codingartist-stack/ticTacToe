@@ -26,7 +26,7 @@ const TicTacToe = (() => {
       for (let j = 0; j < WIDTH; j++) {
         const cell = document.createElement('div');
         cell.classList.add('squares');
-        gameBoard.appendChild(cell);
+        row.appendChild(cell);
       }
     }
   };
