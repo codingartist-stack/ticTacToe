@@ -19,6 +19,12 @@ const TicTacToe = (() => {
   }
 
   // render board
+  function render() {
+    for (let i = 0; i < height; i++) {
+      const row = document.createElement('div');
+      gameBoard.appendChild(row);
+    }
+  }
 
   return {
     board,
