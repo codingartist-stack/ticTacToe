@@ -19,8 +19,9 @@ const TicTacToe = (() => {
   const render = () => {
     gameBoard.innerHTML = '';
     for (let i = 0; i < HEIGHT; i++) {
-      const row = document.createElement('div');
-      gameBoard.appendChild(row);
+      const column = document.createElement('div');
+      column.classList.add('column');
+      gameBoard.appendChild(column);
       for (let j = 0; j < WIDTH; j++) {
         // we're creating the cell at coordinates [i][j]
         // what's the state of the board at that coordinate?
@@ -37,7 +38,7 @@ const TicTacToe = (() => {
           default:
             break;
         }
-        row.appendChild(cell);
+        column.appendChild(cell);
       }
     }
   };

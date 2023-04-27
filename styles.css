@@ -1,6 +1,6 @@
 :root {
   --cell-size: 150px;
-  --mark-size: calc(var(var(--cell-size) * 0.9));
+  --mark-size: calc(var(--cell-size) * 0.9);
 }
 
 body {
@@ -52,7 +52,7 @@ header {
 }
 
 .gameboard {
-  background-color: rgb(190, 222, 233);
+  /* background-color: rgb(232, 249, 255); */
   width: 100vw;
   height: 80vh;
   display: grid;
@@ -62,22 +62,78 @@ header {
 
 .board {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, auto);
   height: calc(var(--cell-size) * 3);
   width: calc(var(--cell-size) * 3);
+  justify-content: center;
+  align-items: center;
 }
 
 .squares {
-  background-color: rgb(255, 255, 255);
   height: var(--cell-size);
   width: var(--cell-size);
   border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
 }
 
-.squares:hover {
-  background-color: lightblue;
+.squares.markX,
+.squares.markO {
+  cursor: not-allowed;
+}
+.squares.markX::before,
+.squares.markX::after,
+.squares.markO::before {
+  background-color: black;
+}
+.squares.markX::before,
+.squares.markX::after,
+.squares.markO::before,
+.squares.markO::after,
+.board .squares:not(.markX):not(.markO):hover::before,
+.board .squares:not(.markX):not(.markO):hover::after {
+  content: '';
+  position: absolute;
 }
 
-.markX {
-  background-color: green;
+.squares.markX::before,
+.squares.markX::after,
+.board .squares:not(.markX):not(.markO):hover::before,
+.board .squares:not(.markX):not(.markO):hover::after {
+  width: calc(var(--mark-size) * 0.15);
+  height: var(--mark-size);
+}
+
+.squares.markX::before,
+.board .squares:not(.markX):not(.markO):hover::before {
+  transform: rotate(45deg);
+}
+
+.squares.markX::after,
+.board .squares:not(.markX):not(.markO):hover::after {
+  transform: rotate(-45deg);
+}
+
+.squares.markO::before,
+.squares.markO::after {
+  border-radius: 50%;
+}
+
+.squares.markO::before {
+  width: var(--mark-size);
+  height: var(--mark-size);
+}
+
+.squares.markO::after {
+  width: calc(var(--mark-size) * 0.7);
+  height: calc(var(--mark-size) * 0.7);
+  background-color: white;
+}
+
+.board .squares:not(.markX):not(.markO):hover::before,
+.board .squares:not(.markX):not(.markO):hover::after {
+  background-color: grey;
 }
