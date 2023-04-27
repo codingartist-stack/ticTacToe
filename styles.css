@@ -74,6 +74,10 @@ header {
   border: 2px solid black;
 }
 
+.squares:hover {
+  background-color: lightblue;
+}
+
 .markX {
   background-color: green;
 }

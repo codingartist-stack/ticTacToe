@@ -11,13 +11,9 @@ const resetButton = document.getElementById('restartButton');
 
 const TicTacToe = (() => {
   console.log(this);
-  const board = [];
+  let board = [];
   const HEIGHT = 3;
   const WIDTH = 3;
-
-  for (let i = 0; i < HEIGHT; i++) {
-    board.push(new Array(WIDTH));
-  }
 
   // render board
   const render = () => {
@@ -51,10 +47,21 @@ const TicTacToe = (() => {
     render();
   };
 
+  const clearBoard = () => {
+    board = [];
+    for (let i = 0; i < HEIGHT; i++) {
+      board.push(new Array(WIDTH));
+    }
+    render();
+  };
+
+  clearBoard();
+
   return {
     board: board,
     render: render,
     addX: addX,
+    clearBoard: clearBoard,
   };
 })();
 
