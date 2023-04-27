@@ -24,10 +24,11 @@ const TicTacToe = (() => {
       gameBoard.appendChild(column);
       for (let j = 0; j < WIDTH; j++) {
         // we're creating the cell at coordinates [i][j]
-        // what's the state of the board at that coordinate?
+
         const cell = document.createElement('div');
         cell.classList.add('squares');
 
+        // Checking the state of the board at that coordinate
         switch (board[i][j]) {
           case 'X':
             cell.classList.add('markX');
