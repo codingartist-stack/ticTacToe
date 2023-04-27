@@ -10,10 +10,12 @@ const resetButton = document.getElementById('restartButton');
 //module
 
 const TicTacToe = (() => {
-  console.log(this);
+  // console.log(this);
   let board = [];
   const HEIGHT = 3;
   const WIDTH = 3;
+  const Xturn = 'x';
+  const Oturn = 'circle';
 
   // render board
   const render = () => {
@@ -40,6 +42,16 @@ const TicTacToe = (() => {
             break;
         }
         column.appendChild(cell);
+
+        cell.addEventListener('click', handleClick, { once: true });
+
+        const handleClick = (e) => {
+          console.log('you have click a space!');
+          //place mark
+          //check win
+          //check draw
+          //switch turns
+        };
       }
     }
   };
