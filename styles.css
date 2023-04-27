@@ -93,47 +93,54 @@ header {
 .squares.markX::after,
 .squares.markO::before,
 .squares.markO::after,
-.board .squares:not(.markX):not(.markO):hover::before,
-.board .squares:not(.markX):not(.markO):hover::after {
+.board.Xturn .squares:not(.markX):not(.markO):hover::before,
+.board.Xturn .squares:not(.markX):not(.markO):hover::after,
+.board.Oturn .squares:not(.markX):not(.markO):hover::before,
+.board.Oturn .squares:not(.markX):not(.markO):hover::after {
   content: '';
   position: absolute;
 }
 
 .squares.markX::before,
 .squares.markX::after,
-.board .squares:not(.markX):not(.markO):hover::before,
-.board .squares:not(.markX):not(.markO):hover::after {
+.board.Xturn .squares:not(.markX):not(.markO):hover::before,
+.board.Xturn .squares:not(.markX):not(.markO):hover::after {
   width: calc(var(--mark-size) * 0.15);
   height: var(--mark-size);
 }
 
 .squares.markX::before,
-.board .squares:not(.markX):not(.markO):hover::before {
+.board.Xturn .squares:not(.markX):not(.markO):hover::before {
   transform: rotate(45deg);
 }
 
 .squares.markX::after,
-.board .squares:not(.markX):not(.markO):hover::after {
+.board.Xturn .squares:not(.markX):not(.markO):hover::after {
   transform: rotate(-45deg);
 }
 
 .squares.markO::before,
-.squares.markO::after {
+.squares.markO::after,
+.board.Oturn .squares:not(.markX):not(.markO):hover::before,
+.board.Oturn .squares:not(.markX):not(.markO):hover::after {
   border-radius: 50%;
 }
 
-.squares.markO::before {
+.squares.markO::before,
+.board.Oturn .squares:not(.markX):not(.markO):hover::before {
   width: var(--mark-size);
   height: var(--mark-size);
 }
 
-.squares.markO::after {
+.squares.markO::after,
+.board.Oturn .squares:not(.markX):not(.markO):hover::after {
   width: calc(var(--mark-size) * 0.7);
   height: calc(var(--mark-size) * 0.7);
   background-color: white;
 }
 
-.board .squares:not(.markX):not(.markO):hover::before,
-.board .squares:not(.markX):not(.markO):hover::after {
+.board.Xturn .squares:not(.markX):not(.markO):hover::before,
+.board.Xturn .squares:not(.markX):not(.markO):hover::after,
+.board.Oturn .squares:not(.markX):not(.markO):hover::before {
   background-color: grey;
 }
