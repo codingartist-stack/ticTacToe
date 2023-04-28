@@ -11,12 +11,14 @@ const TicTacToe = (() => {
   let board = [];
   const HEIGHT = 3;
   const WIDTH = 3;
-  const Xturn = 'markX';
-  const Oturn = 'markO';
+  const Xclass = 'markX';
+  const Oclass = 'markO';
+  let Oturn;
 
   // render board
   const render = () => {
     gameBoard.innerHTML = '';
+    Oturn = false;
     for (let i = 0; i < HEIGHT; i++) {
       const column = document.createElement('div');
       column.classList.add('column');
@@ -39,7 +41,8 @@ const TicTacToe = (() => {
 
         const checkCell = (e) => {
           const addMark = e.target;
-          addMark.classList.add(Xturn);
+          const currentTurn = Oturn ? Oclass : Xclass;
+          addMark.classList.add(currentTurn);
           //check win
           //check draw
           //switch turns
