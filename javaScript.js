@@ -6,9 +6,6 @@ const winMessage = document.getElementById('winMessage');
 const winText = document.getElementById('winText');
 const resetButton = document.getElementById('restartButton');
 
-//1. store the gameboard as an array inside of a gameboard object
-//module
-
 const TicTacToe = (() => {
   // console.log(this);
   let board = [];
@@ -25,12 +22,9 @@ const TicTacToe = (() => {
       column.classList.add('column');
       gameBoard.appendChild(column);
       for (let j = 0; j < WIDTH; j++) {
-        // we're creating the cell at coordinates [i][j]
-
         const cell = document.createElement('div');
         cell.classList.add('squares');
 
-        // Checking the state of the board at that coordinate
         switch (board[i][j]) {
           case 'X':
             cell.classList.add('markX');
@@ -43,12 +37,15 @@ const TicTacToe = (() => {
         }
         column.appendChild(cell);
 
-        cell.addEventListener('click', handleClick, { once: true });
+        const checkCell = (e) => {
+          const addMark = e.target;
+          addMark.classList.add(Xturn);
+          //check win
+          //check draw
+          //switch turns
+        };
 
-        //place mark
-        //check win
-        //check draw
-        //switch turns
+        cell.addEventListener('click', checkCell, { once: true });
       }
     }
   };
@@ -57,14 +54,6 @@ const TicTacToe = (() => {
   //   board[i][j] = 'X';
   //   render();
   // };
-
-  const handleClick = (e) => {
-    console.log('you have click a space!');
-    // const cell = e.target;
-    // const currentTurn = Oturn ? Oturn : Xturn;
-    // const placeMark = (cell, currentTurn) => {
-    //   cell.classList.add(currentTurn);
-  };
 
   const clearBoard = () => {
     board = [];
@@ -85,13 +74,3 @@ const TicTacToe = (() => {
 })();
 
 TicTacToe.render();
-//2. Your players are also going to be stored in objects,
-// and you’re probably going to want an object to control the flow of the game itself.
-//factories
-
-//place markers
-
-//check for win
-//check for draw
-
-//display results message
