@@ -14,8 +14,8 @@ const TicTacToe = (() => {
   let board = [];
   const HEIGHT = 3;
   const WIDTH = 3;
-  const Xturn = 'x';
-  const Oturn = 'circle';
+  const Xturn = 'markX';
+  const Oturn = 'markO';
 
   // render board
   const render = () => {
@@ -45,20 +45,25 @@ const TicTacToe = (() => {
 
         cell.addEventListener('click', handleClick, { once: true });
 
-        const handleClick = (e) => {
-          console.log('you have click a space!');
-          //place mark
-          //check win
-          //check draw
-          //switch turns
-        };
+        //place mark
+        //check win
+        //check draw
+        //switch turns
       }
     }
   };
 
-  const addX = (i, j) => {
-    board[i][j] = 'X';
-    render();
+  // const addX = (i, j) => {
+  //   board[i][j] = 'X';
+  //   render();
+  // };
+
+  const handleClick = (e) => {
+    console.log('you have click a space!');
+    // const cell = e.target;
+    // const currentTurn = Oturn ? Oturn : Xturn;
+    // const placeMark = (cell, currentTurn) => {
+    //   cell.classList.add(currentTurn);
   };
 
   const clearBoard = () => {
@@ -74,7 +79,7 @@ const TicTacToe = (() => {
   return {
     board: board,
     render: render,
-    addX: addX,
+    // addX: addX,
     clearBoard: clearBoard,
   };
 })();
