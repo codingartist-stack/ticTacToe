@@ -7,18 +7,15 @@ const winText = document.getElementById('winText');
 const resetButton = document.getElementById('restartButton');
 
 const TicTacToe = (() => {
-  // console.log(this);
   let board = [];
   const HEIGHT = 3;
   const WIDTH = 3;
   const Xclass = 'markX';
   const Oclass = 'markO';
-  let Oturn;
+  let Oturn = false;
 
-  // render board
   const render = () => {
     gameBoard.innerHTML = '';
-    Oturn = false;
     for (let i = 0; i < HEIGHT; i++) {
       const column = document.createElement('div');
       column.classList.add('column');
@@ -26,17 +23,6 @@ const TicTacToe = (() => {
       for (let j = 0; j < WIDTH; j++) {
         const cell = document.createElement('div');
         cell.classList.add('squares');
-
-        switch (board[i][j]) {
-          case 'X':
-            cell.classList.add('markX');
-            break;
-          case 'O':
-            cell.classList.add('markO');
-            break;
-          default:
-            break;
-        }
         column.appendChild(cell);
 
         const checkCell = (e) => {
@@ -45,7 +31,7 @@ const TicTacToe = (() => {
           addMark.classList.add(currentTurn);
           //check win
           //check draw
-          //switch turns
+          switchTurns();
         };
 
         cell.addEventListener('click', checkCell, { once: true });
@@ -53,10 +39,19 @@ const TicTacToe = (() => {
     }
   };
 
-  // const addX = (i, j) => {
-  //   board[i][j] = 'X';
-  //   render();
-  // };
+  const switchTurns = () => {
+    Oturn = !Oturn;
+  };
+
+  const checkWin = () => {
+    //check possible wins...
+  };
+
+  const checkDraw = () => {
+    //all cells have a class added to them, but no win
+  };
+
+  //I want to add the hover class
 
   const clearBoard = () => {
     board = [];
@@ -71,7 +66,6 @@ const TicTacToe = (() => {
   return {
     board: board,
     render: render,
-    // addX: addX,
     clearBoard: clearBoard,
   };
 })();
