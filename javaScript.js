@@ -1,6 +1,7 @@
 console.log('I am connected! ');
 //Your main goal here is to have as little global code as possible.
 
+const gameBoardContainer = document.getElementById('boardContainer');
 const gameBoard = document.getElementById('board');
 const winMessage = document.getElementById('winMessage');
 const winText = document.getElementById('winText');
@@ -16,6 +17,7 @@ const TicTacToe = (() => {
 
   const render = () => {
     gameBoard.innerHTML = '';
+    addHoverEffect();
     for (let i = 0; i < HEIGHT; i++) {
       const column = document.createElement('div');
       column.classList.add('column');
@@ -32,6 +34,7 @@ const TicTacToe = (() => {
           //check win
           //check draw
           switchTurns();
+          addHoverEffect();
         };
 
         cell.addEventListener('click', checkCell, { once: true });
@@ -52,6 +55,15 @@ const TicTacToe = (() => {
   };
 
   //I want to add the hover class
+  const addHoverEffect = () => {
+    gameBoard.classList.remove('Oturn');
+    gameBoard.classList.remove('Xturn');
+    if (Oturn) {
+      gameBoard.classList.add('Oturn');
+    } else {
+      gameBoard.classList.add('Xturn');
+    }
+  };
 
   const clearBoard = () => {
     board = [];
@@ -67,6 +79,7 @@ const TicTacToe = (() => {
     board: board,
     render: render,
     clearBoard: clearBoard,
+    addHoverEffect: addHoverEffect,
   };
 })();
 
