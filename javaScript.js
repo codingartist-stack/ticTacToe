@@ -57,8 +57,6 @@ const TicTacToe = (() => {
       board[i][j] = 'X';
     }
     render();
-    switchTurns();
-    addHoverEffect();
     console.log(board);
   };
 
@@ -69,6 +67,7 @@ const TicTacToe = (() => {
     //check win
     checkWin();
     //check draw
+    switchTurns();
     addHoverEffect();
   };
 
