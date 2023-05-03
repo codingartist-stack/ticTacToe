@@ -25,11 +25,11 @@ const TicTacToe = (() => {
       for (let j = 0; j < WIDTH; j++) {
         const cell = document.createElement('div');
         cell.classList.add('squares');
-        // cell.id = i + ',' + j;
+        cell.id = i + ',' + j;
 
         column.appendChild(cell);
 
-        cell.addEventListener('click', checkCell, { once: true });
+        cell.addEventListener('click', handleClick, { once: true });
 
         switch (board[i][j]) {
           case 'X':
@@ -58,19 +58,17 @@ const TicTacToe = (() => {
     }
     render();
     switchTurns();
+    addHoverEffect();
+    console.log(board);
   };
 
-  const checkCell = (e) => {
+  const handleClick = (e) => {
     const addMark = e.target;
     const [i, j] = e.target.id.split(',').map((n) => parseInt(n));
-    // update board
-    // rerender
-    const currentTurn = Oturn ? Oclass : Xclass;
-    addMark.classList.add(currentTurn);
+    addToArray(i, j);
     //check win
     checkWin();
     //check draw
-    switchTurns();
     addHoverEffect();
   };
 
@@ -107,7 +105,6 @@ const TicTacToe = (() => {
     board: board,
     render: render,
     clearBoard: clearBoard,
-    addToArray: addToArray,
   };
 })();
 
