@@ -50,7 +50,6 @@ const TicTacToe = (() => {
   };
 
   const addToArray = (i, j) => {
-    const currentTurn = Oturn ? Oclass : Xclass;
     if (Oturn) {
       board[i][j] = 'O';
     } else {
@@ -63,6 +62,7 @@ const TicTacToe = (() => {
   const handleClick = (e) => {
     const addMark = e.target;
     const [i, j] = e.target.id.split(',').map((n) => parseInt(n));
+    const currentTurn = Oturn ? Oclass : Xclass;
     addToArray(i, j);
     //check win
     checkWin();
