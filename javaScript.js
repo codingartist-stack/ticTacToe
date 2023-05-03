@@ -78,7 +78,6 @@ const TicTacToe = (() => {
     board: board,
     render: render,
     clearBoard: clearBoard,
-    addHoverEffect: addHoverEffect,
   };
 })();
 
