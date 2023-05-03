@@ -54,7 +54,6 @@ const TicTacToe = (() => {
     //all cells have a class added to them, but no win
   };
 
-  //I want to add the hover class
   const addHoverEffect = () => {
     gameBoard.classList.remove('Oturn');
     gameBoard.classList.remove('Xturn');
