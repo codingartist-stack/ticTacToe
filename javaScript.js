@@ -25,13 +25,19 @@ const TicTacToe = (() => {
       for (let j = 0; j < WIDTH; j++) {
         const cell = document.createElement('div');
         cell.classList.add('squares');
+        cell.id = i + ',' + j;
+
         column.appendChild(cell);
 
         const checkCell = (e) => {
           const addMark = e.target;
+          const [i, j] = e.target.id.split(',').map((n) => parseInt(n));
+          // update board
+          // rerender
           const currentTurn = Oturn ? Oclass : Xclass;
           addMark.classList.add(currentTurn);
           //check win
+          checkWin();
           //check draw
           switchTurns();
           addHoverEffect();
@@ -47,6 +53,7 @@ const TicTacToe = (() => {
   };
 
   const checkWin = () => {
+    console.log('hey');
     //check possible wins...
   };
 
