@@ -69,6 +69,23 @@ header {
   align-items: center;
 }
 
+#column0 .squares {
+  border-left: none;
+}
+
+#column2 .squares {
+  border-right: none;
+}
+
+.squares:first-child {
+  border-top: none;
+  /* background-color: blueviolet; */
+}
+
+.squares:last-child {
+  border-bottom: none;
+}
+
 .squares {
   height: var(--cell-size);
   width: var(--cell-size);

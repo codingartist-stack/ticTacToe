@@ -17,7 +17,7 @@ const TicTacToe = (() => {
   let Oturn = false;
   const possibleWins = [
     //somehow show the possible wins
-    [0, 1, 2],
+    ['X', 'X', 'X'],
   ];
 
   const render = () => {
@@ -25,7 +25,7 @@ const TicTacToe = (() => {
     addHoverEffect();
     for (let i = 0; i < HEIGHT; i++) {
       const column = document.createElement('div');
-      column.classList.add('column');
+      column.id = `column` + i;
       gameBoard.appendChild(column);
       for (let j = 0; j < WIDTH; j++) {
         const cell = document.createElement('div');
@@ -81,10 +81,8 @@ const TicTacToe = (() => {
     console.log(`checking win`);
     //check possible wins...
     //if 0: ['X', 'X', 'X'] than X wins
-    if ((board[0] = ['X', 'X', 'X'])) {
+    if (board[0] === possibleWins) {
       console.log('X wins!');
-    } else {
-      console.log(`swtich turns`);
     }
   };
 
