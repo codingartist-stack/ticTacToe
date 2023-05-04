@@ -71,21 +71,20 @@ const TicTacToe = (() => {
     addToArray(i, j);
     //check win
     checkWin();
-    if (checkWin(currentTurn)) {
-      console.log(`game over`);
-    } else {
-      switchTurns();
-      addHoverEffect();
-    }
+
+    switchTurns();
+    addHoverEffect();
     //check draw
   };
 
-  const checkWin = (currentTurn) => {
+  const checkWin = () => {
     console.log(`checking win`);
     //check possible wins...
     //if 0: ['X', 'X', 'X'] than X wins
     if ((board[0] = ['X', 'X', 'X'])) {
       console.log('X wins!');
+    } else {
+      console.log(`swtich turns`);
     }
   };
 
