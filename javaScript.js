@@ -6,6 +6,7 @@ const gameBoard = document.getElementById('board');
 const winMessage = document.getElementById('winMessage');
 const winText = document.getElementById('winText');
 const resetButton = document.getElementById('restartButton');
+const startReset = document.getElementById('startReset');
 
 const TicTacToe = (() => {
   let board = [];
@@ -16,6 +17,7 @@ const TicTacToe = (() => {
   let Oturn = false;
   const possibleWins = [
     //somehow show the possible wins
+    [0, 1, 2],
   ];
 
   const render = () => {
@@ -69,14 +71,22 @@ const TicTacToe = (() => {
     addToArray(i, j);
     //check win
     checkWin();
+    if (checkWin(currentTurn)) {
+      console.log(`game over`);
+    } else {
+      switchTurns();
+      addHoverEffect();
+    }
     //check draw
-    switchTurns();
-    addHoverEffect();
   };
 
-  const checkWin = () => {
-    console.log('hey');
+  const checkWin = (currentTurn) => {
+    console.log(`checking win`);
     //check possible wins...
+    //if 0: ['X', 'X', 'X'] than X wins
+    if ((board[0] = ['X', 'X', 'X'])) {
+      console.log('X wins!');
+    }
   };
 
   const checkDraw = () => {
