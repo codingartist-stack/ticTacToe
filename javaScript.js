@@ -14,6 +14,9 @@ const TicTacToe = (() => {
   const Xclass = 'markX';
   const Oclass = 'markO';
   let Oturn = false;
+  const possibleWins = [
+    //somehow show the possible wins
+  ];
 
   const render = () => {
     gameBoard.innerHTML = '';
