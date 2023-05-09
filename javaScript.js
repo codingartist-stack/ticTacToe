@@ -124,12 +124,13 @@ const TicTacToe = (() => {
   };
 
   const clearBoard = () => {
+    winMessage.classList.remove('show');
+    winText.textContent = '';
     board = [];
     for (let i = 0; i < HEIGHT; i++) {
       board.push(new Array(WIDTH));
     }
-    winMessage.classList.remove('show');
-    winText.textContent = '';
+
     render();
   };
 
