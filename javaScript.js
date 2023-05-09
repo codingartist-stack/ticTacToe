@@ -15,12 +15,7 @@ const TicTacToe = (() => {
   const Xclass = 'markX';
   const Oclass = 'markO';
   let Oturn = false;
-  const XcolumnWins = [
-    //somehow show the possible wins
-    'X',
-    'X',
-    'X',
-  ];
+  const XcolumnWins = ['X', 'X', 'X'];
   const OcolumnWins = ['O', 'O', 'O'];
 
   const render = () => {
