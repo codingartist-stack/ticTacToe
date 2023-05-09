@@ -15,9 +15,11 @@ const TicTacToe = (() => {
   const Xclass = 'markX';
   const Oclass = 'markO';
   let Oturn = false;
-  const possibleWins = [
+  const XcolumnWins = [
     //somehow show the possible wins
-    ['X', 'X', 'X'],
+    'X',
+    'X',
+    'X',
   ];
 
   const render = () => {
@@ -81,9 +83,17 @@ const TicTacToe = (() => {
     console.log(`checking win`);
     //check possible wins...
     //if 0: ['X', 'X', 'X'] than X wins
-    if (board[0] === possibleWins) {
+    if (compareArray(board[0], XcolumnWins) === true) {
+      console.log('X wins!');
+    } else if (compareArray(board[1], XcolumnWins) === true) {
+      console.log('X wins!');
+    } else if (compareArray(board[2], XcolumnWins) === true) {
       console.log('X wins!');
     }
+  };
+
+  const compareArray = (a, b) => {
+    return a.toString() === b.toString();
   };
 
   const checkDraw = () => {
