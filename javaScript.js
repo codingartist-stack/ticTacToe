@@ -97,11 +97,39 @@ const TicTacToe = (() => {
     } else if (compareArray(board[2], OcolumnWins) === true) {
       winMessage.classList.add('show');
       winText.textContent = 'O Wins!';
+    } else if (compareArray(backwardSlashDiagonal(), XcolumnWins) === true) {
+      winMessage.classList.add('show');
+      winText.textContent = 'X Wins!';
+    } else if (compareArray(backwardSlashDiagonal(), OcolumnWins) === true) {
+      winMessage.classList.add('show');
+      winText.textContent = 'O Wins!';
+    } else if (compareArray(forwardSlashDiagonal(), XcolumnWins) === true) {
+      winMessage.classList.add('show');
+      winText.textContent = 'X Wins!';
+    } else if (compareArray(forwardSlashDiagonal(), OcolumnWins) === true) {
+      winMessage.classList.add('show');
+      winText.textContent = 'O Wins!';
     }
   };
 
   const compareArray = (a, b) => {
     return a.toString() === b.toString();
+  };
+
+  const backwardSlashDiagonal = () => {
+    let bDiagonal = [];
+    for (let i = 0; i < 3; i++) {
+      bDiagonal.push(board[i][i]);
+    }
+    return bDiagonal;
+  };
+
+  const forwardSlashDiagonal = () => {
+    let fDiagonal = [];
+    for (let i = 0; i < 3; i++) {
+      fDiagonal.push(board[i][2 - i]);
+    }
+    return fDiagonal;
   };
 
   const checkDraw = () => {
