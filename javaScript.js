@@ -1,4 +1,3 @@
-console.log('I am connected! ');
 //Your main goal here is to have as little global code as possible.
 
 const gameBoardContainer = document.getElementById('boardContainer');
