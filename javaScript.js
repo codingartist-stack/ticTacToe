@@ -15,8 +15,8 @@ const TicTacToe = (() => {
   const Xclass = 'markX';
   const Oclass = 'markO';
   let Oturn = false;
-  const XcolumnWins = ['X', 'X', 'X'];
-  const OcolumnWins = ['O', 'O', 'O'];
+  const Xwins = ['X', 'X', 'X'];
+  const Owins = ['O', 'O', 'O'];
 
   const render = () => {
     gameBoard.innerHTML = '';
@@ -79,41 +79,83 @@ const TicTacToe = (() => {
     console.log(`checking win`);
     //check possible wins...
     //if 0: ['X', 'X', 'X'] than X wins
-    if (compareArray(board[0], XcolumnWins) === true) {
+    if (compareArray(board[0], Xwins) === true) {
       winMessage.classList.add('show');
       winText.textContent = 'X Wins!';
-    } else if (compareArray(board[1], XcolumnWins) === true) {
+    } else if (compareArray(board[1], Xwins) === true) {
       winMessage.classList.add('show');
       winText.textContent = 'X Wins!';
-    } else if (compareArray(board[2], XcolumnWins) === true) {
+    } else if (compareArray(board[2], Xwins) === true) {
       winMessage.classList.add('show');
       winText.textContent = 'X Wins!';
-    } else if (compareArray(board[0], OcolumnWins) === true) {
+    } else if (compareArray(board[0], Owins) === true) {
       winMessage.classList.add('show');
       winText.textContent = 'O Wins!';
-    } else if (compareArray(board[1], OcolumnWins) === true) {
+    } else if (compareArray(board[1], Owins) === true) {
       winMessage.classList.add('show');
       winText.textContent = 'O Wins!';
-    } else if (compareArray(board[2], OcolumnWins) === true) {
+    } else if (compareArray(board[2], Owins) === true) {
       winMessage.classList.add('show');
       winText.textContent = 'O Wins!';
-    } else if (compareArray(backwardSlashDiagonal(), XcolumnWins) === true) {
+    } else if (compareArray(backwardSlashDiagonal(), Xwins) === true) {
       winMessage.classList.add('show');
       winText.textContent = 'X Wins!';
-    } else if (compareArray(backwardSlashDiagonal(), OcolumnWins) === true) {
+    } else if (compareArray(backwardSlashDiagonal(), Owins) === true) {
       winMessage.classList.add('show');
       winText.textContent = 'O Wins!';
-    } else if (compareArray(forwardSlashDiagonal(), XcolumnWins) === true) {
+    } else if (compareArray(forwardSlashDiagonal(), Xwins) === true) {
       winMessage.classList.add('show');
       winText.textContent = 'X Wins!';
-    } else if (compareArray(forwardSlashDiagonal(), OcolumnWins) === true) {
+    } else if (compareArray(forwardSlashDiagonal(), Owins) === true) {
       winMessage.classList.add('show');
       winText.textContent = 'O Wins!';
+    } else if (compareArray(firstRowwin(), Owins) === true) {
+      winMessage.classList.add('show');
+      winText.textContent = 'O Wins!';
+    } else if (compareArray(firstRowwin(), Xwins) === true) {
+      winMessage.classList.add('show');
+      winText.textContent = 'X Wins!';
+    } else if (compareArray(secondRowWin(), Owins) === true) {
+      winMessage.classList.add('show');
+      winText.textContent = 'O Wins!';
+    } else if (compareArray(secondRowWin(), Xwins) === true) {
+      winMessage.classList.add('show');
+      winText.textContent = 'X Wins!';
+    } else if (compareArray(thirdRowWin(), Owins) === true) {
+      winMessage.classList.add('show');
+      winText.textContent = 'O Wins!';
+    } else if (compareArray(thirdRowWin(), Xwins) === true) {
+      winMessage.classList.add('show');
+      winText.textContent = 'X Wins!';
     }
   };
 
   const compareArray = (a, b) => {
     return a.toString() === b.toString();
+  };
+
+  const firstRowwin = () => {
+    let firstRow = [];
+    for (let i = 0; i < 3; i++) {
+      firstRow.push(board[i][0]);
+    }
+    return firstRow;
+  };
+
+  const secondRowWin = () => {
+    let secondRow = [];
+    for (let i = 0; i < 3; i++) {
+      secondRow.push(board[i][1]);
+    }
+    return secondRow;
+  };
+
+  const thirdRowWin = () => {
+    let thirdRow = [];
+    for (let i = 0; i < 3; i++) {
+      thirdRow.push(board[i][2]);
+    }
+    return thirdRow;
   };
 
   const backwardSlashDiagonal = () => {
