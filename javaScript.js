@@ -21,6 +21,7 @@ const TicTacToe = (() => {
     'X',
     'X',
   ];
+  const OcolumnWins = ['O', 'O', 'O'];
 
   const render = () => {
     gameBoard.innerHTML = '';
@@ -84,11 +85,23 @@ const TicTacToe = (() => {
     //check possible wins...
     //if 0: ['X', 'X', 'X'] than X wins
     if (compareArray(board[0], XcolumnWins) === true) {
-      console.log('X wins!');
+      winMessage.classList.add('show');
+      winText.textContent = 'X Wins!';
     } else if (compareArray(board[1], XcolumnWins) === true) {
-      console.log('X wins!');
+      winMessage.classList.add('show');
+      winText.textContent = 'X Wins!';
     } else if (compareArray(board[2], XcolumnWins) === true) {
-      console.log('X wins!');
+      winMessage.classList.add('show');
+      winText.textContent = 'X Wins!';
+    } else if (compareArray(board[0], OcolumnWins) === true) {
+      winMessage.classList.add('show');
+      winText.textContent = 'O Wins!';
+    } else if (compareArray(board[1], OcolumnWins) === true) {
+      winMessage.classList.add('show');
+      winText.textContent = 'O Wins!';
+    } else if (compareArray(board[2], OcolumnWins) === true) {
+      winMessage.classList.add('show');
+      winText.textContent = 'O Wins!';
     }
   };
 
@@ -115,10 +128,15 @@ const TicTacToe = (() => {
     for (let i = 0; i < HEIGHT; i++) {
       board.push(new Array(WIDTH));
     }
+    winMessage.classList.remove('show');
+    winText.textContent = '';
     render();
   };
 
   clearBoard();
+
+  startReset.addEventListener('click', clearBoard, true);
+  resetButton.addEventListener('click', clearBoard, true);
 
   return {
     board: board,
