@@ -75,7 +75,6 @@ const TicTacToe = (() => {
   };
 
   const checkWin = () => {
-    console.log(`checking win`);
     //check possible wins...
     //if 0: ['X', 'X', 'X'] than X wins
     if (compareArray(board[0], Xwins) === true) {
@@ -131,6 +130,10 @@ const TicTacToe = (() => {
 
   const compareArray = (a, b) => {
     return a.toString() === b.toString();
+  };
+
+  const aDraw = () => {
+    //each cell it filled
   };
 
   const firstRowwin = () => {
