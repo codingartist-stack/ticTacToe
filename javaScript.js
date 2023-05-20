@@ -125,6 +125,9 @@ const TicTacToe = (() => {
     } else if (compareArray(thirdRowWin(), Xwins) === true) {
       winMessage.classList.add('show');
       winText.textContent = 'X Wins!';
+    } else if (aDraw(board) === true) {
+      winMessage.classList.add('show');
+      winText.textContent = `It's a Draw!`;
     }
   };
 
@@ -132,8 +135,17 @@ const TicTacToe = (() => {
     return a.toString() === b.toString();
   };
 
-  const aDraw = () => {
-    //each cell it filled
+  const aDraw = (board) => {
+    for (let i = 0; i < HEIGHT; i++) {
+      for (let j = 0; j < WIDTH; j++) {
+        if (board[i][j] === 'X' || board[i][j] === 'O') {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      //each cell it filled
+    }
   };
 
   const firstRowwin = () => {
@@ -174,10 +186,6 @@ const TicTacToe = (() => {
       fDiagonal.push(board[i][2 - i]);
     }
     return fDiagonal;
-  };
-
-  const checkDraw = () => {
-    //all cells have a class added to them, but no win
   };
 
   const addHoverEffect = () => {
