@@ -138,10 +138,10 @@ const TicTacToe = (() => {
   const aDraw = (board) => {
     for (let i = 0; i < HEIGHT; i++) {
       for (let j = 0; j < WIDTH; j++) {
-        if (board[i][j] === 'X' || board[i][j] === 'O') {
-          return true;
-        } else {
+        if (board[i][j] !== 'X' || board[i][j] !== 'O') {
           return false;
+        } else {
+          return true;
         }
       }
       //each cell it filled
